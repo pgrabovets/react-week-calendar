@@ -1,0 +1,56 @@
+.calendar_app {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  border: 1px solid #e6e7e9;
+}
+
+.calendar_header {
+  padding: 10px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background-color: #f9fafb;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.calendar_header button {
+  cursor: pointer;
+}
+
+.calendar_content {
+  overflow: auto;
+  height: 600px;
+}
+
+.calendar_days {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: 54px repeat(7, 1fr);
+  border-top: 1px solid #e6e7e9;
+  border-bottom: 1px solid #e6e7e9;
+  z-index: 1;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.calendar_day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #e6e7e9;
+  padding: 6px 0;
+}
+
+.calendar_day:last-child {
+  border:none;
+}
+
+.calendar_days_left {
+  width: 54px;
+  border-right: 1px solid #e6e7e9;
+}

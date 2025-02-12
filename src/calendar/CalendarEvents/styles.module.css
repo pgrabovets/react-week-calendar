@@ -1,0 +1,60 @@
+.calendar_events {
+  display: flex;
+}
+
+.time_row {
+  height: 2400px;
+}
+
+.time_row div {
+  width: 54px;
+}
+
+.week_events_grid {
+  position: relative;
+  flex-grow: 1;
+  display: grid;
+  grid-template-rows: repeat(1, minmax(0, 1fr));
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.horisontal_lines {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: repeat(48, 49px);
+}
+
+.horisontal_lines div {
+  border-bottom: 1px solid #e6e7e9;
+}
+
+.vertical_lines {
+  position: absolute;
+  height: 2400px;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+}
+
+.vertical_lines div {
+  border-right: 1px solid #e6e7e9;
+}
+
+.vertical_lines div:first-child {
+  border-left: 1px solid #e6e7e9;
+}
+
+.vertical_lines div:last-child {
+  border-right: none;
+}
+
+.time_label {
+  position: relative;
+  display: inline-block;
+  color: #999;
+  font-size: 12px;
+  left: -36px;
+  top: -12px;
+}
