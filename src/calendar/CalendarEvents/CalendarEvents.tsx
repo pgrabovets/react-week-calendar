@@ -1,7 +1,6 @@
-import s from './styles.module.css';
+import s from './CalendarEvents.module.css';
 
 const CalendarEvents = () => {
-
   const formatHours = (value: number) => {
     if (value === 0) {
       return '12AM';
@@ -22,18 +21,10 @@ const CalendarEvents = () => {
       label: string
     }[] = [];
 
-    const size = 48;
-
-    for (let index = 0; index < size; index++) {
-      let label = '';
-
-      if (index % 2 === 0 ) {
-        label = formatHours(index/ 2);
-      }
-
+    for (let index = 0; index < 24; index++) {
       rows[index] = {
         index: index,
-        label: label
+        label: formatHours(index)
       };
     }
     return rows;

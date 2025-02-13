@@ -1,0 +1,15 @@
+.calendar_header {
+  padding: 10px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background-color: #f9fafb;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.calendar_header button {
+  cursor: pointer;
+}
