@@ -15,7 +15,8 @@
   justify-content: center;
   align-items: center;
   border-right: 1px solid #e6e7e9;
-  padding: 6px 0;
+  gap: 4px;
+  height: 40px;
 }
 
 .calendar_day:last-child {
@@ -25,4 +26,16 @@
 .calendar_days_left {
   width: 54px;
   border-right: 1px solid #e6e7e9;
+}
+
+.current_day {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 27px;
+  height: 27px;
+  border-radius: 999px;
+  background-color: #888;
+  color: #fff;
+  font-weight: 600;
 }

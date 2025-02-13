@@ -6,6 +6,11 @@ type CalendarDaysProps = {
 };
 
 const CalendarDays = ({ dates }: CalendarDaysProps) => {
+  const isToday = (day: Date) => {
+    const today = new Date();
+    return today.toDateString() === day.toDateString();
+  };
+
   const getShortWeekName = (date: Date) => {
     return date.toLocaleString("default", { weekday: "short" });
   };
@@ -18,6 +23,7 @@ const CalendarDays = ({ dates }: CalendarDaysProps) => {
           key={item.toISOString()}
           name={getShortWeekName(item)}
           day={item.getDate()}
+          active={isToday(item)}
         />
       ))}
     </div>
