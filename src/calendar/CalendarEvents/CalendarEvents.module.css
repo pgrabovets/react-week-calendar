@@ -42,15 +42,16 @@
   grid-template-rows: repeat(1, 1fr);
 }
 
-.vertical_lines div {
+.vertical_lines .line {
+  position: relative;
   border-right: 1px solid #e6e7e9;
 }
 
-.vertical_lines div:first-child {
+.vertical_lines .line:first-child {
   border-left: 1px solid #e6e7e9;
 }
 
-.vertical_lines div:last-child {
+.vertical_lines .line:last-child {
   border-right: none;
 }
 
@@ -65,4 +66,20 @@
   width: 54px;
   padding: 0 6px;
   text-align: right;
+}
+
+.calendar_event {
+  box-sizing: content-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 8px;
+  height: 0;
+  background-color: #eee;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.calendar_event_time {
+  color: #777;
 }

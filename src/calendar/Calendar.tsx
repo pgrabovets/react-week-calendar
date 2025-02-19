@@ -3,6 +3,9 @@ import CalendarHeader from "./CalendarHeader/CalendarHeader";
 import CalendarDays from "./CalendarDays/CalendarDays";
 import CalendarEvents from "./CalendarEvents/CalendarEvents";
 import { useCalendarData } from "./useCalendarData";
+import { eventsData } from "./data/events";
+
+import type { EventData } from "./types";
 
 const Calendar = () => {
   const { dates, shift, setShift, monthName, year } = useCalendarData();
@@ -15,6 +18,12 @@ const Calendar = () => {
     setShift(shift - 7);
   };
 
+  const events: EventData[] = eventsData.map((item, index) => {
+    return { ...item, id: String(index), element: null };
+  });
+
+  console.log(eventsData);
+
   return (
     <div className={s.calendar_app}>
       <CalendarHeader
@@ -25,7 +34,7 @@ const Calendar = () => {
       />
       <div className={s.calendar_content}>
         <CalendarDays dates={dates} />
-        <CalendarEvents />
+        <CalendarEvents dates={dates} events={events} />
       </div>
     </div>
   );
