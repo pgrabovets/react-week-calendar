@@ -3,8 +3,15 @@ import CalendarHeader from "./CalendarHeader/CalendarHeader";
 import CalendarDays from "./CalendarDays/CalendarDays";
 import CalendarEvents from "./CalendarEvents/CalendarEvents";
 import { useCalendarData } from "./useCalendarData";
+import { splitEvents } from "./utils";
 
-const Calendar = () => {
+import type { EventData } from "./types";
+
+type CalendarProps = {
+  events: EventData[]
+}
+
+const Calendar = ({ events }: CalendarProps) => {
   const { dates, shift, setShift, monthName, year } = useCalendarData();
 
   const handleNext = () => {
@@ -14,6 +21,8 @@ const Calendar = () => {
   const handlePrev = () => {
     setShift(shift - 7);
   };
+
+  const splitedEvents = splitEvents(events);
 
   return (
     <div className={s.calendar_app}>
@@ -25,7 +34,7 @@ const Calendar = () => {
       />
       <div className={s.calendar_content}>
         <CalendarDays dates={dates} />
-        <CalendarEvents />
+        <CalendarEvents dates={dates} events={splitedEvents} />
       </div>
     </div>
   );

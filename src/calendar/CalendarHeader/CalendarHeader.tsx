@@ -1,4 +1,7 @@
 import s from "./CalendarHeader.module.css";
+import CalendarNavButton from "../CalendarNavButton/CalendarNavButton";
+import ChevronLeft from "../icons/ChevronLeft";
+import ChevronRight from "../icons/ChevronRight";
 
 type CalendarHeaderProps = {
   month: string;
@@ -15,11 +18,15 @@ const CalendarHeader = ({
 }: CalendarHeaderProps) => {
   return (
     <div className={s.calendar_header}>
-      <button onClick={onPrev}>Prev</button>
+      <CalendarNavButton onClick={onPrev}>
+        <ChevronLeft />
+      </CalendarNavButton>
       <span>
         {month} {year}
       </span>
-      <button onClick={onNext}>Next</button>
+      <CalendarNavButton onClick={onNext}>
+        <ChevronRight />
+      </CalendarNavButton>
     </div>
   );
 };

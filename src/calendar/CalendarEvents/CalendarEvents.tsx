@@ -1,40 +1,54 @@
-import s from './CalendarEvents.module.css';
+import s from "./CalendarEvents.module.css";
+import CalendarEvent from "./CalendarEvent";
+import CalendarEventCard from "../CalendarEventCard/CalendarEventCard";
+import type { EventData } from "../types";
 
-const CalendarEvents = () => {
+type CalendarEventsProps = {
+  dates: Date[];
+  events: EventData[];
+};
+
+const CalendarEvents = ({ dates, events }: CalendarEventsProps) => {
   const formatHours = (value: number) => {
     if (value === 0) {
-      return '12AM';
+      return "12AM";
     }
 
     if (value < 13) {
-      return value + 'AM';
+      return value + "AM";
     }
     if (value > 12 && value < 24) {
-      return value % 12 + 'PM';
+      return (value % 12) + "PM";
     }
-    return '';
-  }
+    return "";
+  };
 
   const createRowsData = () => {
     const rows: {
-      index: number
-      label: string
+      index: number;
+      label: string;
     }[] = [];
 
     for (let index = 0; index < 24; index++) {
       rows[index] = {
         index: index,
-        label: formatHours(index)
+        label: formatHours(index),
       };
     }
     return rows;
-  }
+  };
 
   const rows = createRowsData();
 
+  const isSameDate = (date1: Date, date2: Date) => {
+    return date1.toDateString() === date2.toDateString();
+  };
+
   return (
     <div className={s.calendar_events}>
-      <div className={s.time_row}><div></div></div>
+      <div className={s.time_row}>
+        <div></div>
+      </div>
       <div className={s.week_events_grid}>
         <div className={s.horisontal_lines}>
           <div></div>
@@ -45,17 +59,33 @@ const CalendarEvents = () => {
           ))}
         </div>
         <div className={s.vertical_lines}>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          {dates.map((item) => (
+            <div key={item.toISOString()} className={s.line}>
+              {events.map((event, index) =>
+                isSameDate(item, new Date(event.start)) ? (
+                  <CalendarEvent
+                    key={`${index}_${event.start}`}
+                    start={event.start}
+                    end={event.end}
+                  >
+                    {event.element === null ? (
+                      <CalendarEventCard
+                        title={event.title}
+                        start={event.start}
+                        end={event.end}
+                      />
+                    ) : (
+                      event.element
+                    )}
+                  </CalendarEvent>
+                ) : null
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default CalendarEvents;
