@@ -1,15 +1,15 @@
 # React Week Calendar
-Week Events Calendar for you React + TS application
+Week Events Calendar for your React + TS application
 - No external dependencies
-- Full control to customize and edit calendar component to your needs
+- Full control to customize and edit the calendar component to your needs
 
 ## Demo 
 [demo](http://pgrabovets.github.io/react-week-calendar/)
 
-![calendar image](http://pgrabovets.github.io/react-week-calendar/calendar-example-1.png)
+![calendar screenshot](http://pgrabovets.github.io/react-week-calendar/calendar-example-1.png)
 
-## Example of usage
-You can clone this repo and copy directory src/calendar to you prodject.
+## Example of Usage
+You can clone this repo and copy the src/calendar directory to your project.
 
 ```ts
 export type EventData = {
